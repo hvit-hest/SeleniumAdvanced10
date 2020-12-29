@@ -1,4 +1,4 @@
-package org.courses.pages.mainpage.components;
+package org.courses.pages.duckdetailspage.components;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -6,14 +6,14 @@ import org.openqa.selenium.WebElement;
 import java.util.HashMap;
 import java.util.List;
 
-public class DuckDetails {
+public class DuckDetailsSection {
+
     private WebElement rootDuckDetailsWe;
-    private By duckNameBy = By.cssSelector(".name");
     private By duckRegularPriceBy = By.cssSelector(".regular-price,.price");
     private By duckCampaignPriceBy = By.cssSelector(".campaign-price");
 
 
-    public DuckDetails(WebElement rootDuckDetailsWe) {
+    public DuckDetailsSection(WebElement rootDuckDetailsWe) {
         this.rootDuckDetailsWe = rootDuckDetailsWe;
     }
 
@@ -21,8 +21,6 @@ public class DuckDetails {
     public HashMap<String, String> getDuckData() {
         HashMap<String, String> DuckDetails = new HashMap<String, String>();
         WebElement regularPriceWe = rootDuckDetailsWe.findElement(duckRegularPriceBy);
-
-        DuckDetails.put("duckName", rootDuckDetailsWe.findElement(duckNameBy).getText());
 
         DuckDetails.put("regularPrice", regularPriceWe.getText());
         DuckDetails.put("regularPriceColor", regularPriceWe.getCssValue("color"));

@@ -58,7 +58,7 @@ public class MainPage {
 
     public List<WebElement> getDucksWEs(DucksBlock ducksBlock) {
         return driverHere.findElement(ducksBlock.getBlockSelector()).
-                findElements(By.cssSelector("li product"));
+                findElements(By.cssSelector("li.product"));
     }
 
 
@@ -71,8 +71,7 @@ public class MainPage {
     }
 
     public void openParticularDuckDetailsPage(DucksBlock ducksBlock, int numberInList) {
-        List<WebElement> getDucksWEs = driverHere.findElement(ducksBlock.getBlockSelector()).
-                findElements(By.cssSelector("li product"));
+        List<WebElement> getDucksWEs = getDucksWEs(ducksBlock);
         if (getDucksWEs.size() > 0) {
             getDucksWEs.get(numberInList).click();
         }
