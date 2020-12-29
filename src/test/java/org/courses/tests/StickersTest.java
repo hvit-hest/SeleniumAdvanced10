@@ -36,7 +36,7 @@ public class StickersTest {
     @Test
     public void stickerExistsSimpleTest() {
         String searchStickerCSS = "[class^=sticker]";
-        mainPage.getDuckProducts().forEach( we -> {
+        mainPage.getAllDuckProducts().forEach(we -> {
             List<WebElement> stickersPerDuck = we.findElements(By.cssSelector(searchStickerCSS));
             Assert.assertTrue(stickersPerDuck.size()==1 &&
                     !stickersPerDuck.get(0).getText().trim().isEmpty());
@@ -47,7 +47,7 @@ public class StickersTest {
     public void stickerExistsWithSoftAssertTest() {
         String searchStickerCSS = "[class^=sticker]";
         SoftAssert softAssertion = new SoftAssert();
-        mainPage.getDuckProducts().forEach( we -> {
+        mainPage.getAllDuckProducts().forEach(we -> {
             List<WebElement> stickersPerDuck = we.findElements(By.cssSelector(searchStickerCSS));
             softAssertion.assertTrue(stickersPerDuck.size()==1 &&
                     !stickersPerDuck.get(0).getText().trim().isEmpty() );

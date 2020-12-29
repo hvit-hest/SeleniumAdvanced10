@@ -1,5 +1,7 @@
 package org.courses.pages.mainpage;
 
+import org.courses.pages.mainpage.components.DuckDetails;
+import org.courses.pages.mainpage.components.DucksBlock;
 import org.courses.pages.mainpage.components.UserLoginForm;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -44,13 +46,35 @@ public class MainPage {
         return driverHere.findElements(By.cssSelector("form[name='login_form']")).size() > 0;
     }
 
-    public List<WebElement> getDuckProducts() {
+    public List<WebElement> getAllDuckProducts() {
         return duckProducts;
     }
 
     public void logout() {
         if (!isUserLoginFormOpened()) {
             logoutButton.click();
+        }
+    }
+
+    public List<WebElement> getDucksWEs(DucksBlock ducksBlock) {
+        return driverHere.findElement(ducksBlock.getBlockSelector()).
+                findElements(By.cssSelector("li product"));
+    }
+
+
+    public DuckDetails getDuck(DucksBlock ducksBlock, int numberInList) {
+        DuckDetails duckDetails = null;
+        List<WebElement> ducksList = getDucksWEs(ducksBlock);
+        if (ducksList.size() != 0)
+            duckDetails = new DuckDetails(ducksList.get(numberInList));
+        return duckDetails;
+    }
+
+    public void openParticularDuckDetailsPage(DucksBlock ducksBlock, int numberInList) {
+        List<WebElement> getDucksWEs = driverHere.findElement(ducksBlock.getBlockSelector()).
+                findElements(By.cssSelector("li product"));
+        if (getDucksWEs.size() > 0) {
+            getDucksWEs.get(numberInList).click();
         }
     }
 }
