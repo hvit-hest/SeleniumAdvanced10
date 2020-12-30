@@ -1,10 +1,10 @@
 # SeleniumHomeWork10
 
-mvn clean test -DDuckDetailsTest -Pchrome (default)
+mvn -Dtest=DuckDetailsTest test -Pchrome
 
-mvn clean test -DDuckDetailsTest -Pfirefox
+mvn -Dtest=DuckDetailsTest test -Pfirefox
 
-mvn clean test -DDuckDetailsTest -Pie
+mvn -Dtest=DuckDetailsTest test -Pie
 
 
 
