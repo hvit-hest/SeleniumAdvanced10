@@ -70,4 +70,10 @@ public class Utils {
 
         return firstPrice.compareTo(secondPrice);
     }
+
+    public static int  compareFonts (String priceOneFont, String priceTwoFont) {
+        //Using comparePrices since no difference for the case. We just need numbers to compare
+        return comparePrices (priceOneFont, priceTwoFont);
+    }
+
 }

@@ -28,6 +28,7 @@ public class DuckDetails {
         DuckDetails.put("regularPriceColor", regularPriceWe.getCssValue("color"));
         DuckDetails.put("regularPriceDecoration", regularPriceWe.getCssValue("text-decoration"));
         DuckDetails.put("regularPriceFontWeight", regularPriceWe.getCssValue("font-weight"));
+        DuckDetails.put("regularPriceFontSize", regularPriceWe.getCssValue("font-size"));
 
         List<WebElement> campaignPriceWEs = rootDuckDetailsWe.findElements(duckCampaignPriceBy);
 
@@ -36,11 +37,13 @@ public class DuckDetails {
             DuckDetails.put("campaignPriceColor", campaignPriceWEs.get(0).getCssValue("color"));
             DuckDetails.put("campaignPriceDecoration", campaignPriceWEs.get(0).getCssValue("text-decoration"));
             DuckDetails.put("campaignPriceFontWeight", campaignPriceWEs.get(0).getCssValue("font-weight"));
+            DuckDetails.put("campaignPriceFontSize", campaignPriceWEs.get(0).getCssValue("font-size"));
         } else {
-            DuckDetails.put("campaignPrice","");
+            DuckDetails.put("campaignPrice", "");
             DuckDetails.put("campaignPriceColor", "");
-            DuckDetails.put("campaignPriceDecoration","");
-            DuckDetails.put("campaignPriceFontWeight","");
+            DuckDetails.put("campaignPriceDecoration", "");
+            DuckDetails.put("campaignPriceFontWeight", "");
+            DuckDetails.put("campaignPriceFontSize", "");
         }
 
         return DuckDetails;

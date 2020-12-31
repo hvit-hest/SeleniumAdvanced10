@@ -46,9 +46,11 @@ public class DuckDetailsTest {
         String duckOnMainPageRegularPrice = duckData.get("regularPrice");
         String duckOnMainPageRegularColor = duckData.get("regularPriceColor");
         String duckOnMainPageRegularPriceDecoration = duckData.get("regularPriceDecoration");
+        String duckOnMainPageRegularPriceFontSize = duckData.get("regularPriceFontSize");
         String duckOnMainPageCampaignPrice = duckData.get("campaignPrice");
         String duckOnMainPageCampaignPriceColor = duckData.get("campaignPriceColor");
         String duckOnMainPageCampaignFontWeight = duckData.get("campaignPriceFontWeight");
+        String duckOnMainPageCampaignPriceFontSize = duckData.get("campaignPriceFontSize");
 
         //Asserts for MainPage
 
@@ -81,6 +83,14 @@ public class DuckDetailsTest {
                         Integer.parseInt(duckOnMainPageCampaignFontWeight) >= 700,
                 "Campaign price is NOT bold out on Main Page");
 
+        //Campaign price FONT is more than Regular price font on Main page
+        softAssertion.assertTrue(
+                Utils.compareFonts(duckOnMainPageCampaignPriceFontSize, duckOnMainPageRegularPriceFontSize) > 0,
+                String.format("Campaign price font size '%s' has to be more than regular price font size '%s', Main Page",
+                        duckOnMainPageCampaignPriceFontSize, duckOnMainPageRegularPriceFontSize)
+        );
+
+
         //Compare regular price and campaign price on MainPage
         softAssertion.assertTrue(Utils.comparePrices(duckOnMainPageCampaignPrice, duckOnMainPageRegularPrice) < 0,
                 String.format("Campaign price '%s' has to be less than regular price '%s', Main Page",
@@ -100,10 +110,11 @@ public class DuckDetailsTest {
         String duckOnDetailsPageRegularPrice = duckDataOnDuckDetailsPage.get("regularPrice");
         String duckOnDetailsPageRegularPriceColor = duckDataOnDuckDetailsPage.get("regularPriceColor");
         String duckOnDetailsPageRegularPriceDecoration = duckDataOnDuckDetailsPage.get("regularPriceDecoration");
+        String duckOnDetailsPageRegularPriceFontSize = duckData.get("regularPriceFontSize");
         String duckOnDetailsPageCampaignPrice = duckDataOnDuckDetailsPage.get("campaignPrice");
         String duckOnDetailsPageCampaignPriceColor = duckDataOnDuckDetailsPage.get("campaignPriceColor");
         String duckOnDetailsPageCampaignFontWeight = duckData.get("campaignPriceFontWeight");
-
+        String duckOnDetailsPageCampaignPriceFontSize = duckData.get("campaignPriceFontSize");
 
         //Asserts for DuckDetails Page
 
@@ -136,6 +147,13 @@ public class DuckDetailsTest {
                 duckOnDetailsPageCampaignFontWeight.equals("bold") ||
                         Integer.parseInt(duckOnDetailsPageCampaignFontWeight) >= 700,
                 "Campaign price is NOT bold out on DuckDetails Page");
+
+        //Campaign price font is more than Regular price font on DuckDetails Page
+        softAssertion.assertTrue(
+                Utils.compareFonts(duckOnDetailsPageCampaignPriceFontSize,
+                        duckOnDetailsPageRegularPriceFontSize) > 0,
+                String.format("Campaign price font '%s' has to be more than regular price font '%s', Details Page",
+                        duckOnDetailsPageCampaignPrice, duckOnDetailsPageRegularPrice));
 
         //Compare regular price and campaign price on DuckDetails Page
 
@@ -171,4 +189,3 @@ public class DuckDetailsTest {
     }
 
 }
-
