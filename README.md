@@ -1,4 +1,4 @@
-# SeleniumHomeWork10
+# SeleniumAdvanced10
 
 mvn -Dtest=DuckDetailsTest test -Pchrome
 
